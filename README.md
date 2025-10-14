@@ -1,7 +1,7 @@
 **React homework 2**
 
 1. Create a new branch in your repository for the homework 2.
-2. Create **static** [HomePage](https://www.figma.com/design/zXWAWEDbSkA4oIW3B9osgN/Delivery-food?node-id=0-1&p=f)
+2. Create **static** [HomePage](https://www.figma.com/design/zXWAWEDbSkA4oIW3B9osgN/Delivery-food?node-id=0-1&p=f&t=UzQgxJNdn7cfXlIN-0)
 3. By hover on the "phone" word tooltip should appear with phone number
    ![img.png](img.png)
 4. **!Important** In case you can't download any asset from mockup please use only **free** images, icons and fonts (with a free license).
