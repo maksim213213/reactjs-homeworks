@@ -34,7 +34,7 @@ const Footer = () => {
                 <li><a href="#" className="hover:text-primary transition">Home</a></li>
                 <li><a href="#" className="hover:text-primary transition">Order</a></li>
                 <li><a href="#" className="hover:text-primary transition">FAQ</a></li>
-                  <li className="relative group">
+                <li className="relative group">
                     <img src={phoneIcon} alt="phone" className="w-6 h-6 hover:opacity-75 transition cursor-pointer" />
                     <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 whitespace-nowrap">
                       +1 (555) 123-4567
