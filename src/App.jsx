@@ -1,10 +1,8 @@
-import ItemList from "./components/ItemList";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
-    <div>
-      <ItemList />
-    </div>
+    <HomePage />
   );
 }
 
