@@ -4,7 +4,7 @@ import useFetch from '../../hooks/useFetch';
 
 const API_URL = 'https://65de35f3dccfcd562f5691bb.mockapi.io/api/v1/meals';
 
-const Menu = ({ onAddToCart }) => {
+const Menu = () => {
   const [visibleItems, setVisibleItems] = useState(6);
   const [selectedCategory, setSelectedCategory] = useState('Dessert');
   const { data: menuItems, loading, error } = useFetch(API_URL);
@@ -56,7 +56,7 @@ const Menu = ({ onAddToCart }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
           {filteredItems.slice(0, visibleItems).map(item => (
-            <MenuItem key={item.id} item={item} onAddToCart={onAddToCart} />
+            <MenuItem key={item.id} item={item} />
           ))}
         </div>
 

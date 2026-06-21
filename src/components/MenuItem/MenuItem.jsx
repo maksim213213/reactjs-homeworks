@@ -1,10 +1,21 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../store/cartSlice';
 
-export default function MenuItem({ item, onAddToCart }) {
+export default function MenuItem({ item }) {
   const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    onAddToCart(item.price * quantity);
+    dispatch(
+      addItem({
+        id: item.id,
+        meal: item.meal,
+        price: item.price,
+        img: item.img,
+        quantity,
+      })
+    );
   };
 
   const truncateWords = (text, wordLimit) => {
@@ -37,15 +48,15 @@ export default function MenuItem({ item, onAddToCart }) {
         </p>
 
         <div className="flex items-center gap-2">
-          <input 
-            type="number" 
-            min="1" 
+          <input
+            type="number"
+            min="1"
             value={quantity}
             onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
             className="w-[54px] h-11 border border-[#d6e4e8] rounded-md text-[#1f2937] bg-[#fbfbfb] flex items-center justify-center text-[20px]"
           />
 
-          <button 
+          <button
             onClick={handleAddToCart}
             className="h-11 border-0 rounded-md px-[22px] bg-[#35b8be] text-white text-[17px] cursor-pointer hover:opacity-90"
           >
