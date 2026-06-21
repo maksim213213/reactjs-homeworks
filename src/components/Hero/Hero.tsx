@@ -5,7 +5,7 @@ import trustpilotIcon from "../../assets/images/trustpilotIcon.svg";
 const RATING = 4.8;
 const MAX_STARS = 5;
 
-const StarIcon = ({ filled }) => (
+const StarIcon = ({ filled }: { filled: boolean }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"

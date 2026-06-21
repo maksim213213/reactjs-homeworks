@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import MenuItem from '../MenuItem/MenuItem';
 import useFetch from '../../hooks/useFetch';
+import type { Meal } from '../../types';
 
 const API_URL = 'https://65de35f3dccfcd562f5691bb.mockapi.io/api/v1/meals';
 
 const Menu = () => {
   const [visibleItems, setVisibleItems] = useState(6);
   const [selectedCategory, setSelectedCategory] = useState('Dessert');
-  const { data: menuItems, loading, error } = useFetch(API_URL);
+  const { data: menuItems, loading, error } = useFetch<Meal[]>(API_URL);
 
   const handleSeeMore = () => {
     setVisibleItems(prev => prev + 6);
   };
 
-  const handleCategoryFilter = (category) => {
+  const handleCategoryFilter = (category: string) => {
     setSelectedCategory(category);
     setVisibleItems(6);
   };

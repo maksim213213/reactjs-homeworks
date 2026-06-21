@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
+import type { ReactNode } from 'react';
 import { useDispatch } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase';
 import { setUser, clearUser } from '../store/authSlice';
 
-const AuthListener = ({ children }) => {
+const AuthListener = ({ children }: { children: ReactNode }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {

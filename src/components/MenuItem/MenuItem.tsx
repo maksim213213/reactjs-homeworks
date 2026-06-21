@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../store/cartSlice';
+import type { Meal } from '../../types';
 
-export default function MenuItem({ item }) {
+export default function MenuItem({ item }: { item: Meal }) {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
@@ -18,7 +19,7 @@ export default function MenuItem({ item }) {
     );
   };
 
-  const truncateWords = (text, wordLimit) => {
+  const truncateWords = (text: string, wordLimit: number) => {
     if (!text) return '';
     const words = text.split(/\s+/).slice(0, wordLimit);
     return words.join(' ') + (text.split(/\s+/).length > wordLimit ? '...' : '');
