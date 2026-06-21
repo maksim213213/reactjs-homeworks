@@ -7,6 +7,7 @@ const Menu = ({ onAddToCart }) => {
   const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('Dessert');
 
   useEffect(() => {
     const loadMenuItems = async () => {
@@ -30,6 +31,13 @@ const Menu = ({ onAddToCart }) => {
     onAddToCart(price);
   };
 
+  const handleCategoryFilter = (category) => {
+    setSelectedCategory(category);
+    setVisibleItems(6);
+  };
+
+  const filteredItems = menuItems.filter(item => item.category === selectedCategory);
+
   if (loading) return <div className="text-center py-20">Loading menu...</div>;
   if (error) return <div className="text-center py-20 text-red-500">{error}</div>;
 
@@ -46,18 +54,30 @@ const Menu = ({ onAddToCart }) => {
         </p>
 
         <div className="flex flex-wrap justify-center gap-6 mb-16">
-          <button disabled className="px-12 py-4 bg-primary text-white rounded-xl text-xl">Dessert</button>
-          <button disabled className="px-12 py-4 bg-white border border-gray-300 text-textDark rounded-xl text-xl">Dinner</button>
-          <button disabled className="px-12 py-4 bg-white border border-gray-300 text-textDark rounded-xl text-xl">Breakfast</button>
+          <button
+            onClick={() => handleCategoryFilter('Dessert')}
+            className={`px-12 py-4 rounded-xl text-xl transition-colors ${selectedCategory === 'Dessert' ? 'bg-primary text-white' : 'bg-white border border-gray-300 text-textDark hover:border-primary'}`}>
+            Dessert
+          </button>
+          <button
+            onClick={() => handleCategoryFilter('Dinner')}
+            className={`px-12 py-4 rounded-xl text-xl transition-colors ${selectedCategory === 'Dinner' ? 'bg-primary text-white' : 'bg-white border border-gray-300 text-textDark hover:border-primary'}`}>
+            Dinner
+          </button>
+          <button
+            onClick={() => handleCategoryFilter('Breakfast')}
+            className={`px-12 py-4 rounded-xl text-xl transition-colors ${selectedCategory === 'Breakfast' ? 'bg-primary text-white' : 'bg-white border border-gray-300 text-textDark hover:border-primary'}`}>
+            Breakfast
+          </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
-          {menuItems.slice(0, visibleItems).map(item => (
+          {filteredItems.slice(0, visibleItems).map(item => (
             <MenuItem key={item.id} item={item} onAddToCart={handleAddToCart} />
           ))}
         </div>
 
-        {visibleItems < menuItems.length && (
+        {visibleItems < filteredItems.length && (
           <div className="flex justify-center">
             <button onClick={handleSeeMore} className="px-12 py-3 bg-primary text-white rounded-xl hover:bg-primary/90">See more</button>
           </div>
