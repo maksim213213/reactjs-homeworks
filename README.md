@@ -1,16 +1,17 @@
-**React homework 1**
+**React homework 2**
 
-1. Create new repository for react homeworks with an appropriate name
-2. Create React project using Vite (select **JS** option for now, **not** TS)
-3. Remove unnecessary code
-4. Create a basic structure of your project
-5. Edit **package.json** file: add necessary information about you and your project
-6. Create a **class** component which will render an **arbitrary list of items**, run application and add **screenshot** of you rendered list to merge request
-7. Push code to your remote repository and open merge request:
-   7.1 Merge request description should include:
-    - homework number
-    - what was done (description of your changes)
-    - screenshot from option 6.
+1. Create a new branch in your repository for the homework 2.
+2. Create **static** [HomePage](https://www.figma.com/design/zXWAWEDbSkA4oIW3B9osgN/Delivery-food?node-id=0-1&p=f&t=UzQgxJNdn7cfXlIN-0)
+3. By hover on the "phone" word tooltip should appear with phone number
+   ![img.png](img.png)
+4. **!Important** In case you can't download any asset from mockup please use only **free** images, icons and fonts (with a free license).
+5. Open merge request. Merge request link add to moodle. After getting approve of your MR from a mentor merge it to the main branch
+   5.1 Merge request description should include:
+   - homework number
+   - what was done (description of your changes)
+   - screenshot of an implemented page.
+
+Responsive styles isn't obligatory, but in final assessment you can earn additional scores ;)
 
 Please pay attention that for **each** homework you shell create **separate branch**.
 
