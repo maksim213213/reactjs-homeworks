@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import type { FormEvent } from 'react';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate, Link } from 'react-router-dom';
 import { auth } from '../firebase';
@@ -9,14 +10,14 @@ const RULES = [
   'Password must be at least 9 characters long',
 ];
 
-const validate = (email, password) => {
+const validate = (email: string, password: string) => {
   const errors = [];
   if (!email.endsWith('@gmail.com')) errors.push(RULES[0]);
   if (password.length <= 8) errors.push(RULES[1]);
   return errors;
 };
 
-const ValidationModal = ({ onClose }) => (
+const ValidationModal = ({ onClose }: { onClose: () => void }) => (
   <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
     <div className="bg-white rounded-2xl shadow-xl w-full max-w-sm p-6">
       <h2 className="text-lg font-medium text-textDark mb-3">Check your input</h2>
@@ -48,7 +49,7 @@ const LoginPage = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
 
@@ -72,7 +73,7 @@ const LoginPage = () => {
       }
       navigate('/');
     } catch (err) {
-      setError(err.message);
+      setError(err instanceof Error ? err.message : 'Something went wrong');
     } finally {
       setLoading(false);
     }

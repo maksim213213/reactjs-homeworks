@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import MenuItem from '../MenuItem/MenuItem';
 import useFetch from '../../hooks/useFetch';
+import type { Meal } from '../../types';
 
 const API_URL = 'https://65de35f3dccfcd562f5691bb.mockapi.io/api/v1/meals';
 
-const Menu = ({ onAddToCart }) => {
+const Menu = () => {
   const [visibleItems, setVisibleItems] = useState(6);
   const [selectedCategory, setSelectedCategory] = useState('Dessert');
-  const { data: menuItems, loading, error } = useFetch(API_URL);
+  const { data: menuItems, loading, error } = useFetch<Meal[]>(API_URL);
 
   const handleSeeMore = () => {
     setVisibleItems(prev => prev + 6);
   };
 
-  const handleCategoryFilter = (category) => {
+  const handleCategoryFilter = (category: string) => {
     setSelectedCategory(category);
     setVisibleItems(6);
   };
@@ -56,7 +57,7 @@ const Menu = ({ onAddToCart }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
           {filteredItems.slice(0, visibleItems).map(item => (
-            <MenuItem key={item.id} item={item} onAddToCart={onAddToCart} />
+            <MenuItem key={item.id} item={item} />
           ))}
         </div>
 

@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import heroImage from "../../assets/images/homeBanner.png";
 import trustpilotIcon from "../../assets/images/trustpilotIcon.svg";
 
 const RATING = 4.8;
 const MAX_STARS = 5;
 
-const StarIcon = ({ filled }) => (
+const StarIcon = ({ filled }: { filled: boolean }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -41,12 +42,12 @@ const Hero = () => {
             </p>
 
             <div className="mt-8">
-              <button
-                disabled
-                className="cursor-not-allowed rounded-md bg-primary px-8 py-3 font-medium text-white opacity-90"
+              <Link
+                to="/order"
+                className="inline-block rounded-md bg-primary px-8 py-3 font-medium text-white hover:bg-opacity-90 transition"
               >
                 Place an Order
-              </button>
+              </Link>
             </div>
 
             <div className="mt-8 flex flex-col items-center gap-2 lg:items-start">
