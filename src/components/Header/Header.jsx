@@ -1,7 +1,7 @@
 import { ShoppingCart } from "lucide-react";
 import logo from "../../assets/images/logo (1).svg";
 
-const Header = ({ cartTotal }) => {
+const Header = ({ cartTotal = 0 }) => {
   return (
     <header className="flex items-center justify-between px-8 py-4 bg-white shadow-sm">
       <img src={logo} alt="FoodDelivery" className="h-10 w-10" />
