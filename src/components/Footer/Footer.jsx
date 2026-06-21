@@ -46,10 +46,10 @@ const Footer = () => {
             <div>
               <h4 className="font-semibold text-textDark mb-4 uppercase text-xs tracking-wider">Template</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="hover:text-primary transition">Style Guide</a></li>
-                <li><a href="#" className="hover:text-primary transition">Changelog</a></li>
-                <li><a href="#" className="hover:text-primary transition">Licence</a></li>
-                <li><a href="#" className="hover:text-primary transition">Webflow University</a></li>
+                <li><a href="https://www.google.com/" className="hover:text-primary transition">Style Guide</a></li>
+                <li><a href="https://www.google.com/" className="hover:text-primary transition">Changelog</a></li>
+                <li><a href="https://www.google.com/" className="hover:text-primary transition">Licence</a></li>
+                <li><a href="https://www.google.com/" className="hover:text-primary transition">Webflow University</a></li>
               </ul>
             </div>
 
