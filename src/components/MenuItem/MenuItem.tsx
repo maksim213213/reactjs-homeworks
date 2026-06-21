@@ -3,6 +3,12 @@ import { useDispatch } from 'react-redux';
 import { addItem } from '../../store/cartSlice';
 import type { Meal } from '../../types';
 
+const truncateWords = (text: string, wordLimit: number) => {
+  if (!text) return '';
+  const words = text.split(/\s+/);
+  return words.slice(0, wordLimit).join(' ') + (words.length > wordLimit ? '...' : '');
+};
+
 export default function MenuItem({ item }: { item: Meal }) {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
@@ -19,14 +25,8 @@ export default function MenuItem({ item }: { item: Meal }) {
     );
   };
 
-  const truncateWords = (text: string, wordLimit: number) => {
-    if (!text) return '';
-    const words = text.split(/\s+/).slice(0, wordLimit);
-    return words.join(' ') + (text.split(/\s+/).length > wordLimit ? '...' : '');
-  };
-
   return (
-    <div className="grid grid-cols-[124px_1fr] gap-[18px] items-center p-[18px] border border-[#d6e4e8] rounded-lg bg-white px-6 py-8" >
+    <div className="grid grid-cols-[124px_1fr] gap-[18px] items-center p-[18px] border border-[#d6e4e8] dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 px-6 py-8" >
       <img
         src={item.img || "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80"}
         alt={item.meal || "Meal"}
@@ -35,7 +35,7 @@ export default function MenuItem({ item }: { item: Meal }) {
 
       <div className="flex flex-col gap-[10px]">
         <div className="flex justify-between items-center gap-[10px]">
-          <h2 className="m-0 text-[#111827] text-base leading-none">
+          <h2 className="m-0 text-[#111827] dark:text-slate-100 text-base leading-none">
             {item.meal || "Meal"}
           </h2>
 
@@ -44,7 +44,7 @@ export default function MenuItem({ item }: { item: Meal }) {
           </span>
         </div>
 
-        <p className="m-0 text-[#546285] text-base leading-[1.4] min-h-[46px]">
+        <p className="m-0 text-[#546285] dark:text-slate-300 text-base leading-[1.4] min-h-[46px]">
           {truncateWords(item.instructions, 20) || "No description available"}
         </p>
 
@@ -54,7 +54,7 @@ export default function MenuItem({ item }: { item: Meal }) {
             min="1"
             value={quantity}
             onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
-            className="w-[54px] h-11 border border-[#d6e4e8] rounded-md text-[#1f2937] bg-[#fbfbfb] flex items-center justify-center text-[20px]"
+            className="w-[54px] h-11 border border-[#d6e4e8] dark:border-slate-600 rounded-md text-[#1f2937] dark:text-slate-100 bg-[#fbfbfb] dark:bg-slate-700 flex items-center justify-center text-[20px]"
           />
 
           <button

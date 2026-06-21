@@ -21,14 +21,14 @@ const Menu = () => {
 
   const filteredItems = (menuItems || []).filter(item => item.category === selectedCategory);
 
-  if (loading) return <div className="text-center py-20">Loading menu...</div>;
+  if (loading) return <div className="text-center py-20 dark:text-slate-300">Loading menu...</div>;
   if (error) return <div className="text-center py-20 text-red-500">Failed to load menu items</div>;
 
   return (
-    <div className="bg-bgLight min-h-screen py-20 px-8">
+    <div className="bg-bgLight dark:bg-slate-900 min-h-screen py-20 px-8">
       <div className="max-w-[1600px] mx-auto">
         <h2 className="text-5xl md:text-6xl text-center text-primary mb-6">Browse our menu</h2>
-        <p className="text-xl md:text-2xl text-center text-textGray max-w-3xl mx-auto mb-12 opacity-80">
+        <p className="text-xl md:text-2xl text-center text-textGray dark:text-slate-300 max-w-3xl mx-auto mb-12 opacity-80">
           Use our menu to place an order online, or{" "}
           <span className="relative group cursor-pointer text-primary">
             phone
@@ -47,7 +47,7 @@ const Menu = () => {
               className={`px-12 py-4 rounded-xl text-xl transition-colors ${
                 selectedCategory === category
                   ? 'bg-primary text-white'
-                  : 'bg-white border border-gray-300 text-textDark hover:border-primary'
+                  : 'bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-textDark dark:text-slate-100 hover:border-primary'
               }`}
             >
               {category}

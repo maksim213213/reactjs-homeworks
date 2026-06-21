@@ -1,7 +1,7 @@
 // src/components/Footer/Footer.jsx
-import logo from "../../assets/images/logo (1).svg";
+import logo from "../../assets/images/logo.svg";
 import footerBg from "../../assets/images/footerBg.svg";
-import phoneIcon from "../../assets/images/phone_icon.jpg";
+import phoneIcon from "../../assets/images/phoneIcon.jpg";
 
 const InstagramIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
@@ -17,19 +17,19 @@ const YoutubeIcon = () => (
 
 const Footer = () => {
   return (
-    <footer className="relative bg-bgLight px-8 py-12 text-sm text-textGray">
-      <div className="absolute inset-0" style={{ backgroundImage: `url(${footerBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+    <footer className="relative bg-bgLight dark:bg-slate-900 px-8 py-12 text-sm text-textGray dark:text-slate-300">
+      <div className="absolute inset-0 dark:hidden" style={{ backgroundImage: `url(${footerBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
       
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between gap-8">
           <div className="max-w-xs">
             <img src={logo} alt="FoodDelivery" className="h-10 w-10 mb-4" />
-            <p className="text-textGray">Takeaway & Delivery template for small - medium businesses.</p>
+            <p className="text-textGray dark:text-slate-300">Takeaway & Delivery template for small - medium businesses.</p>
           </div>
 
           <div className="flex gap-16">
             <div>
-              <h4 className="font-semibold text-textDark mb-4 uppercase text-xs tracking-wider">Company</h4>
+              <h4 className="font-semibold text-textDark dark:text-slate-100 mb-4 uppercase text-xs tracking-wider">Company</h4>
               <ul className="space-y-3">
                 <li><a href="#" className="hover:text-primary transition">Home</a></li>
                 <li><a href="#" className="hover:text-primary transition">Order</a></li>
@@ -44,7 +44,7 @@ const Footer = () => {
             </div>
 
             <div>
-              <h4 className="font-semibold text-textDark mb-4 uppercase text-xs tracking-wider">Template</h4>
+              <h4 className="font-semibold text-textDark dark:text-slate-100 mb-4 uppercase text-xs tracking-wider">Template</h4>
               <ul className="space-y-3">
                 <li><a href="https://www.google.com/" className="hover:text-primary transition">Style Guide</a></li>
                 <li><a href="https://www.google.com/" className="hover:text-primary transition">Changelog</a></li>
@@ -54,7 +54,7 @@ const Footer = () => {
             </div>
 
             <div>
-              <h4 className="font-semibold text-textDark mb-4 uppercase text-xs tracking-wider">Flowbase</h4>
+              <h4 className="font-semibold text-textDark dark:text-slate-100 mb-4 uppercase text-xs tracking-wider">Flowbase</h4>
               <ul className="space-y-3">
                 <li><a href="#" className="hover:text-primary transition">More Cloneables</a></li>
               </ul>
@@ -62,17 +62,17 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-12 pt-6 border-t border-gray-200 dark:border-slate-700 flex flex-col md:flex-row justify-between items-center gap-4">
           <p>Built by <a href="#" className="text-primary hover:underline">Flowbase</a> · Powered by <a href="#" className="text-primary hover:underline">Webflow</a></p>
           
           <div className="flex gap-4">
-            <a href="#" className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition">
+            <a href="#" className="w-10 h-10 rounded-full border border-gray-300 dark:border-slate-600 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition">
               <InstagramIcon />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition">
+            <a href="#" className="w-10 h-10 rounded-full border border-gray-300 dark:border-slate-600 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition">
               <TwitterIcon />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition">
+            <a href="#" className="w-10 h-10 rounded-full border border-gray-300 dark:border-slate-600 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition">
               <YoutubeIcon />
             </a>
           </div>

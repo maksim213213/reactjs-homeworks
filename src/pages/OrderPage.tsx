@@ -26,10 +26,10 @@ const OrderPage = () => {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-bgLight px-8 py-16">
+      <main className="min-h-screen bg-bgLight dark:bg-slate-900 px-8 py-16">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-medium text-textDark mb-2">Your order</h1>
-          <p className="text-textGray mb-8">
+          <h1 className="text-4xl font-medium text-textDark dark:text-slate-100 mb-2">Your order</h1>
+          <p className="text-textGray dark:text-slate-300 mb-8">
             Signed in as <span className="text-primary">{user?.email}</span>
           </p>
 
@@ -40,8 +40,8 @@ const OrderPage = () => {
           )}
 
           {!placed && items.length === 0 && (
-            <div className="bg-white rounded-2xl shadow-sm p-10 text-center">
-              <p className="text-textGray mb-6">Your cart is empty.</p>
+            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-10 text-center">
+              <p className="text-textGray dark:text-slate-300 mb-6">Your cart is empty.</p>
               <Link
                 to="/menu"
                 className="inline-block bg-primary text-white px-8 py-3 rounded-xl hover:bg-opacity-90 transition"
@@ -52,8 +52,8 @@ const OrderPage = () => {
           )}
 
           {!placed && items.length > 0 && (
-            <div className="bg-white rounded-2xl shadow-sm p-6">
-              <ul className="divide-y divide-gray-100">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-6">
+              <ul className="divide-y divide-gray-100 dark:divide-slate-700">
                 {items.map((it) => (
                   <li
                     key={it.id}
@@ -67,8 +67,8 @@ const OrderPage = () => {
                       />
                     )}
                     <div className="flex-1">
-                      <h3 className="text-textDark font-medium">{it.meal}</h3>
-                      <p className="text-sm text-textGray">
+                      <h3 className="text-textDark dark:text-slate-100 font-medium">{it.meal}</h3>
+                      <p className="text-sm text-textGray dark:text-slate-300">
                         ${it.price.toFixed(2)} × {it.quantity}
                       </p>
                     </div>
@@ -85,8 +85,8 @@ const OrderPage = () => {
                 ))}
               </ul>
 
-              <div className="flex justify-between items-center pt-6 mt-2 border-t border-gray-100">
-                <span className="text-lg text-textDark font-medium">Total</span>
+              <div className="flex justify-between items-center pt-6 mt-2 border-t border-gray-100 dark:border-slate-700">
+                <span className="text-lg text-textDark dark:text-slate-100 font-medium">Total</span>
                 <span className="text-2xl text-primary font-semibold">
                   ${total.toFixed(2)}
                 </span>
@@ -95,7 +95,7 @@ const OrderPage = () => {
               <div className="flex gap-3 mt-6">
                 <button
                   onClick={() => dispatch(clearCart())}
-                  className="flex-1 bg-white border border-gray-200 text-textDark py-3 rounded-xl hover:bg-gray-50 transition"
+                  className="flex-1 bg-white dark:bg-slate-700 border border-gray-200 dark:border-slate-600 text-textDark dark:text-slate-100 py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-600 transition"
                 >
                   Clear cart
                 </button>
