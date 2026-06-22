@@ -8,7 +8,7 @@ interface CartState {
   total: number;
 }
 
-const STORAGE_KEY = 'cart_state';
+export const STORAGE_KEY = 'cart_state';
 
 const loadFromStorage = (): CartState => {
   try {

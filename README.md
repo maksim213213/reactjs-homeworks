@@ -1,11 +1,10 @@
-# React homework 10
+# React homework 11
 
-1. Create a new branch in your repository for the homework 10
-2. Create LanguageDropdown component in Header to switch languages.
-3. Add localization for the Home page (all elements should be localized).
-4. User should be able to switch at least three languages. English is default.
-5. Open pull request. Pull request link add to teams. After getting an approval of your PR from a mentor merge it to the main branch
-   5.1 Merge request should include:
+1. Create a new branch in your repository for the homework 11
+2. Set up tests
+3. Cover all functionality relates to user cart with tests
+4. Open pull request. Pull request link add to teams. After getting an approval of your PR from a mentor merge it to the main branch
+   4.1 Merge request should include:
     * homework number
     * what was done (description of your changes)
     * screenshot of an implemented page.
