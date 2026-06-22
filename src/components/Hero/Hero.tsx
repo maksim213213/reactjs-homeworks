@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "../../context/LanguageContext";
 import heroImage from "../../assets/images/homeBanner.png";
 import trustpilotIcon from "../../assets/images/trustpilotIcon.svg";
 
@@ -23,6 +24,8 @@ const StarIcon = ({ filled }: { filled: boolean }) => (
 );
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative overflow-hidden bg-bgLight dark:bg-slate-900 px-8 py-16 lg:px-16 lg:py-24">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
@@ -31,14 +34,13 @@ const Hero = () => {
         <div className="flex flex-col items-center lg:flex-row lg:gap-16">
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-4xl font-medium leading-tight text-textDark dark:text-slate-100 sm:text-5xl lg:text-6xl">
-              Beautiful food & takeaway,{" "}
-              <span className="text-primary">delivered</span> to your door.
+              {t.hero.titleBefore}{" "}
+              <span className="text-primary">{t.hero.titleHighlight}</span>{" "}
+              {t.hero.titleAfter}
             </h1>
 
             <p className="mx-auto mt-6 max-w-md text-textGray dark:text-slate-300 sm:mx-0 lg:mx-0">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500.
+              {t.hero.description}
             </p>
 
             <div className="mt-8">
@@ -46,7 +48,7 @@ const Hero = () => {
                 to="/order"
                 className="inline-block rounded-md bg-primary px-8 py-3 font-medium text-white hover:bg-opacity-90 transition"
               >
-                Place an Order
+                {t.hero.placeOrder}
               </Link>
             </div>
 
@@ -60,8 +62,8 @@ const Hero = () => {
                 </div>
               </div>
               <span className="text-sm text-textGray dark:text-slate-300">
-                <span className="font-medium text-primary">{RATING} out of 5</span>{" "}
-                based on 2000+ reviews
+                <span className="font-medium text-primary">{RATING} {t.hero.ratingOutOf}</span>{" "}
+                {t.hero.reviews}
               </span>
             </div>
           </div>
