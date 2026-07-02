@@ -1,40 +1,17 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingCart } from 'lucide-react';
-import { useAuth } from '../../context/AuthContext';
-import { useCart } from '../../context/CartContext';
-import logo from '../../assets/images/logo (1).svg';
+import { ShoppingCart } from "lucide-react";
+import logo from "../../assets/images/logo (1).svg";
 
-const Header = () => {
-  const { cartTotal } = useCart();
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
-
-  const handleLogout = async () => {
-    await logout();
-    navigate('/');
-  };
-
+const Header = ({ cartTotal = 0 }) => {
   return (
     <header className="flex items-center justify-between px-8 py-4 bg-white shadow-sm">
-      <Link to="/">
-        <img src={logo} alt="FoodDelivery" className="h-10 w-10" />
-      </Link>
+      <img src={logo} alt="FoodDelivery" className="h-10 w-10" />
 
       <div className="flex items-center gap-8">
         <nav className="flex items-center gap-8">
-          <Link to="/" className="text-primary font-medium">Home</Link>
-          <Link to="/menu" className="text-gray-700 hover:text-primary transition">Menu</Link>
-          <Link to="/order" className="text-gray-700 hover:text-primary transition">Order</Link>
-          {user ? (
-            <button
-              onClick={handleLogout}
-              className="text-gray-700 hover:text-primary transition"
-            >
-              Logout
-            </button>
-          ) : (
-            <Link to="/login" className="text-gray-700 hover:text-primary transition">Login</Link>
-          )}
+          <a href="#" className="text-primary font-medium">Home</a>
+          <a href="#" className="text-gray-700 hover:text-primary transition">Menu</a>
+          <a href="#" className="text-gray-700 hover:text-primary transition">Company</a>
+          <a href="#" className="text-gray-700 hover:text-primary transition">Login</a>
         </nav>
 
         <button className="relative bg-primary p-3 rounded-lg text-white hover:bg-opacity-90 transition">
