@@ -1,16 +1,19 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart } from 'lucide-react';
-import { useAuth } from '../../context/AuthContext';
-import { useCart } from '../../context/CartContext';
+import { useSelector } from 'react-redux';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase';
+import { selectUser } from '../../store/authSlice';
+import { selectCartTotal } from '../../store/cartSlice';
 import logo from '../../assets/images/logo (1).svg';
 
 const Header = () => {
-  const { cartTotal } = useCart();
-  const { user, logout } = useAuth();
+  const user = useSelector(selectUser);
+  const cartTotal = useSelector(selectCartTotal);
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    await logout();
+    await signOut(auth);
     navigate('/');
   };
 
@@ -37,12 +40,15 @@ const Header = () => {
           )}
         </nav>
 
-        <button className="relative bg-primary p-3 rounded-lg text-white hover:bg-opacity-90 transition">
+        <Link
+          to="/order"
+          className="relative bg-primary p-3 rounded-lg text-white hover:bg-opacity-90 transition inline-flex"
+        >
           <ShoppingCart size={24} />
           <span className="absolute -top-2 -right-2 bg-white text-primary rounded-full w-10 h-8 flex items-center justify-center text-xs font-bold shadow-sm">
             {cartTotal.toFixed(2)}
           </span>
-        </button>
+        </Link>
       </div>
     </header>
   );
